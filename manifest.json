@@ -1,0 +1,16 @@
+{
+  "name": "Highlight Clicked Link",
+  "version": "1.0",
+  "description": "Highlights the link you cliked using a dotted box.",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "ftp://*/*",
+        "file://*"
+      ],
+      "js": ["highlight.js"]
+    }
+  ]
+}
