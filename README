@@ -1,0 +1,11 @@
+This is a Chrome extension that approximates the behavior of most
+other browsers when you click links by highlight (or focusing) the
+link.
+
+Right now it is a bit rough around the edges, but the basic dotted
+border works.  Some glitches may occur due to the CSS used.  Also, it
+doesn't yet highlight the link you clicked when going back a page.
+
+Some history:
+
+http://code.google.com/p/chromium/issues/detail?id=25518
