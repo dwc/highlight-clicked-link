@@ -16,9 +16,11 @@ document.addEventListener("click", function() {
 }, true);
 
 function addBorder(link) {
+    var style = window.getComputedStyle(link, "visited");
+
     link.style.borderStyle = "dotted";
     link.style.borderWidth = "1px";
-    link.style.borderColor = "#ccc";
+    link.style.borderColor = style.color;
 
     prevLink = link;
 }
