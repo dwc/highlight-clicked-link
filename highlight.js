@@ -5,18 +5,27 @@ var prevLink;
 var links = document.getElementsByTagName("a");
 for (var i = 0; i < links.length; i++) {
     var link = links[i];
-    link.addEventListener("click", function() { addBorder(this) }, false);
+
+    link.addEventListener("mousedown", function() {
+        if (prevLink) {
+            removeBorder(prevLink);
+        }
+
+        addBorder(this);
+    }, false);
+
+    link.addEventListener("mouseup", function() { addBorder(this); }, false);
 }
 
-// Reset the highlighted link when something else is clicked
-document.addEventListener("click", function() {
+// Reset the highlighted link when anything else is clicked
+document.addEventListener("mouseup", function() {
     if (prevLink) {
         removeBorder(prevLink);
     }
 }, true);
 
 function addBorder(link) {
-    var style = window.getComputedStyle(link, "visited");
+    var style = window.getComputedStyle(link, null);
 
     link.style.borderStyle = "dotted";
     link.style.borderWidth = "1px";
