@@ -1,39 +1,39 @@
 // Keep track of the highlighted link
 var prevLink;
 
-// Add a border to the highlighted link
+// Add a outline to the highlighted link
 var links = document.getElementsByTagName("a");
 for (var i = 0; i < links.length; i++) {
     var link = links[i];
 
     link.addEventListener("mousedown", function() {
         if (prevLink) {
-            removeBorder(prevLink);
+            removeOutline(prevLink);
         }
 
-        addBorder(this);
+        addOutline(this);
     }, false);
 
-    link.addEventListener("mouseup", function() { addBorder(this); }, false);
+    link.addEventListener("mouseup", function() { addOutline(this); }, false);
 }
 
 // Reset the highlighted link when anything else is clicked
 document.addEventListener("mouseup", function() {
     if (prevLink) {
-        removeBorder(prevLink);
+        removeOutline(prevLink);
     }
 }, true);
 
-function addBorder(link) {
+function addOutline(link) {
     var style = window.getComputedStyle(link, null);
 
-    link.style.borderStyle = "dotted";
-    link.style.borderWidth = "1px";
-    link.style.borderColor = style.color;
+    link.style.outlineStyle = "dotted";
+    link.style.outlineWidth = "1px";
+    link.style.outlineColor = style.color;
 
     prevLink = link;
 }
 
-function removeBorder(link) {
-    link.style.borderWidth = 0;
+function removeOutline(link) {
+    link.style.outlineWidth = 0;
 }
